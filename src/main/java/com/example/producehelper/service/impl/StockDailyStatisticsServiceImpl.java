@@ -25,6 +25,11 @@ public class StockDailyStatisticsServiceImpl implements IStockDailyStatisticsSer
     @Autowired
     private StockDailyStatisticsMapper stockDailyStatisticsMapper;
 
+    /**
+     * 初始化b_goods_stock_daily_statistics表后，第二天需要手动调用该接口统计前一天的数据
+     * @return
+     * @throws Exception
+     */
     @Override
     public String updateStockDailyStatistics() throws Exception
     {

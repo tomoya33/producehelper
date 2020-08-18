@@ -19,6 +19,11 @@ public class ExecuteSQLController
     @Autowired
     private IExecuteSQLService executeSQLService;
 
+    /**
+     * 在指定站点上执行run.sql里的内容
+     * @param stationIds
+     * @return
+     */
     @PostMapping("/run")
     public String runSql(@RequestBody List<String> stationIds)
     {

@@ -13,6 +13,10 @@ public class StockDailyStatisticsController
     @Autowired
     private IStockDailyStatisticsService stockDailyStatisticsService;
 
+    /**
+     * 初始化b_goods_stock_daily_statistics表后，第二天需要手动调用该接口统计前一天的数据
+     * @return
+     */
     @PostMapping("/update")
     public String updateStockDailyStatistics()
     {
