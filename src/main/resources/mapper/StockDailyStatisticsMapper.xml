@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.producehelper.mapper.StockDailyStatisticsMapper">
+
+    <update id="updateStatistics" parameterType="com.example.producehelper.model.GoodsStockDailyStatistics" >
+        UPDATE b_goods_stock_daily_statistics SET receive_count = #{receiveCount}, end_stock = #{endStock}, end_value = #{endValue} WHERE pkno = #{pkno}
+    </update>
+
+    <select id="getUpdateTime" resultType="java.util.Date">
+        SELECT MAX(ctime) FROM b_goods_stock_daily_statistics
+    </select>
+
+    <select id="getLatestRecords" resultType="com.example.producehelper.model.GoodsStockRecord">
+        SELECT * FROM b_goods_stock_record
+        WHERE ctime <![CDATA[ < ]]> #{endTime} AND ctime <![CDATA[ >= ]]> #{startTime}
+    </select>
+
+    <select id="getAllStockDailyStatistics"
+            resultType="com.example.producehelper.model.GoodsStockDailyStatistics">
+        SELECT * FROM b_goods_stock_daily_statistics
+        WHERE statistics_date = #{statisticsDate}
+    </select>
+</mapper>

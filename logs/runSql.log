@@ -1,0 +1,8 @@
+-----------------3308A01执行开始-----------------
+SELECT `defvalue` FROM `s_config` WHERE `varname`='station_name'
+
+defvalue	
+柯城——通城站	
+UPDATE `s_config` set `defvalue` = '2' WHERE `varname` = 'stock_statistics_date'
+
+-----------------3308A01执行完成-----------------
