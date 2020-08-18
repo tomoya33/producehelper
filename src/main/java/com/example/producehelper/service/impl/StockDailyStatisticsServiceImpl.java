@@ -4,6 +4,7 @@ import com.example.producehelper.mapper.StockDailyStatisticsMapper;
 import com.example.producehelper.model.GoodsStockDailyStatistics;
 import com.example.producehelper.model.GoodsStockRecord;
 import com.example.producehelper.service.inf.IStockDailyStatisticsService;
+import com.example.producehelper.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,7 +29,8 @@ public class StockDailyStatisticsServiceImpl implements IStockDailyStatisticsSer
     public String updateStockDailyStatistics() throws Exception
     {
         Date date = stockDailyStatisticsMapper.getUpdateTime();
-        Date endTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2020-08-18 08:00:00");
+
+        Date endTime = DateUtils.addDate(DateUtils.getToday(), 0, 0, 0, 8, 0, 0, 0 );
 //        Date endTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2020-08-17 11:00:00");
         List<GoodsStockRecord> latestRecords = stockDailyStatisticsMapper.getLatestRecords(date, endTime);
 
@@ -40,7 +42,8 @@ public class StockDailyStatisticsServiceImpl implements IStockDailyStatisticsSer
 
         Map<String, List<GoodsStockRecord>> goodsId2RecordList = latestRecords.stream().collect(Collectors.groupingBy(GoodsStockRecord::getGoodsId));
 
-        Date statisticsDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2020-08-17 00:00:00");
+//        Date statisticsDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2020-08-17 00:00:00");
+        Date statisticsDate = DateUtils.addDate(DateUtils.getToday(), 0, 0, -1, 0, 0, 0, 0);
         List<GoodsStockDailyStatistics> stockDailyStatistics = stockDailyStatisticsMapper.getAllStockDailyStatistics(statisticsDate);
         Map<String, GoodsStockDailyStatistics> goodsId2StatisticsList = stockDailyStatistics.stream().collect(Collectors.toMap(goodsStockDailyStatistics -> goodsStockDailyStatistics.getGoodsId(), goodsStockDailyStatistics -> goodsStockDailyStatistics));
 
