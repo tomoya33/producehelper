@@ -1,8 +1,8 @@
 package com.example.producehelper.service.inf;
 
-import java.util.List;
+import com.example.producehelper.model.StationSelected;
 
 public interface IExecuteSQLService
 {
-    void runSql(List<String> stationIds) throws Exception;
+    String runSql(StationSelected stationSelected) throws Exception;
 }

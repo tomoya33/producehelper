@@ -1,5 +1,6 @@
 package com.example.producehelper.controller.stationUpdateBatch;
 
+import com.example.producehelper.model.StationSelected;
 import com.example.producehelper.service.inf.IExecuteSQLService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,16 +22,15 @@ public class ExecuteSQLController
 
     /**
      * 在指定站点上执行run.sql里的内容
-     * @param stationIds
+     * @param stationSelected
      * @return
      */
     @PostMapping("/run")
-    public String runSql(@RequestBody List<String> stationIds)
+    public String runSql(@RequestBody StationSelected stationSelected)
     {
         try
         {
-            executeSQLService.runSql(stationIds);
-            return "SUCCESS";
+            return executeSQLService.runSql(stationSelected);
         }
         catch (Exception e)
         {
