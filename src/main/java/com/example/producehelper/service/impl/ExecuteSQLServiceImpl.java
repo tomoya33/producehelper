@@ -61,8 +61,8 @@ public class ExecuteSQLServiceImpl implements IExecuteSQLService
     {
         ClassPathResource sqlResource = new ClassPathResource(sqlFilePath);
 
-        String projectRootPath = new File("logs").getCanonicalPath();
-        File logFile = new File(projectRootPath, sqlLogFile);
+        String logRootPath = new File("logs").getCanonicalPath();
+        File logFile = new File(logRootPath, sqlLogFile);
         PrintWriter writer = new PrintWriter(new FileWriter(logFile));
 
         for (String stationId : stationIds)
