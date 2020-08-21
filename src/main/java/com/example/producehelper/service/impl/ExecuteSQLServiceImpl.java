@@ -31,17 +31,17 @@ public class ExecuteSQLServiceImpl implements IExecuteSQLService
     @Override
     public String runSql(StationSelected stationSelected) throws Exception
     {
-        Set<String> stationIds;
+        List<String> stationIds;
         String allSelected = stationSelected.getSelected();
         if ("all".equals(allSelected))
         {
             ClassPathResource classPathResource = new ClassPathResource("config/上线站点信息.xlsx");
             List<StationDataSource> stationDataSourceList = FileUtils.readFromExcel(classPathResource.getFile(), StationDataSource.class);
-            stationIds = stationDataSourceList.stream().map(StationDataSource::getStationId).collect(Collectors.toSet());
+            stationIds = stationDataSourceList.stream().map(StationDataSource::getStationId).collect(Collectors.toList());
         }
         else
         {
-            stationIds = new LinkedHashSet<>(stationSelected.getStations());
+            stationIds = stationSelected.getStations();
         }
 
         if (stationIds == null || stationIds.isEmpty())
@@ -57,7 +57,7 @@ public class ExecuteSQLServiceImpl implements IExecuteSQLService
         return "SUCCESS";
     }
 
-    private void executeSqlOnStation(Set<String> stationIds, String sqlFilePath) throws IOException, SQLException
+    private void executeSqlOnStation(Collection<String> stationIds, String sqlFilePath) throws IOException, SQLException
     {
         ClassPathResource sqlResource = new ClassPathResource(sqlFilePath);
 
