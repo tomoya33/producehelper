@@ -31,17 +31,21 @@ public class ExecuteSQLServiceImpl implements IExecuteSQLService
     @Override
     public String runSql(StationSelected stationSelected) throws Exception
     {
-        List<String> stationIds;
+        Set<String> stationIds;
         String allSelected = stationSelected.getSelected();
         if ("all".equals(allSelected))
         {
             ClassPathResource classPathResource = new ClassPathResource("config/上线站点信息.xlsx");
             List<StationDataSource> stationDataSourceList = FileUtils.readFromExcel(classPathResource.getFile(), StationDataSource.class);
-            stationIds = stationDataSourceList.stream().map(StationDataSource::getStationId).collect(Collectors.toList());
+            stationIds = new LinkedHashSet<>(0);
+            for (StationDataSource stationDataSource : stationDataSourceList)
+            {
+                stationIds.add(stationDataSource.getStationId());
+            }
         }
         else
         {
-            stationIds = stationSelected.getStations();
+            stationIds = new LinkedHashSet<>(stationSelected.getStations());
         }
 
         if (stationIds == null || stationIds.isEmpty())
