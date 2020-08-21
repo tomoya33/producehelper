@@ -15,8 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.io.*;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -32,17 +31,17 @@ public class ExecuteSQLServiceImpl implements IExecuteSQLService
     @Override
     public String runSql(StationSelected stationSelected) throws Exception
     {
-        List<String> stationIds;
+        Set<String> stationIds;
         String allSelected = stationSelected.getSelected();
         if ("all".equals(allSelected))
         {
             ClassPathResource classPathResource = new ClassPathResource("config/上线站点信息.xlsx");
             List<StationDataSource> stationDataSourceList = FileUtils.readFromExcel(classPathResource.getFile(), StationDataSource.class);
-            stationIds = stationDataSourceList.stream().map(StationDataSource::getStationId).collect(Collectors.toList());
+            stationIds = stationDataSourceList.stream().map(StationDataSource::getStationId).collect(Collectors.toSet());
         }
         else
         {
-            stationIds = stationSelected.getStations();
+            stationIds = new LinkedHashSet<>(stationSelected.getStations());
         }
 
         if (stationIds == null || stationIds.isEmpty())
@@ -58,7 +57,7 @@ public class ExecuteSQLServiceImpl implements IExecuteSQLService
         return "SUCCESS";
     }
 
-    private void executeSqlOnStation(List<String> stationIds, String sqlFilePath) throws IOException, SQLException
+    private void executeSqlOnStation(Set<String> stationIds, String sqlFilePath) throws IOException, SQLException
     {
         ClassPathResource sqlResource = new ClassPathResource(sqlFilePath);
 
