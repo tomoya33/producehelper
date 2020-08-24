@@ -94,3 +94,4 @@ myRSA:
 
 file:
   sqlLogFile: runSql.log
+  dataSourceFile: config/测试站点信息.xlsx

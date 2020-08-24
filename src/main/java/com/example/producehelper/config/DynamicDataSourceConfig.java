@@ -6,6 +6,7 @@ import com.example.producehelper.dataSource.DynamicDataSource;
 import com.example.producehelper.model.StationDataSource;
 import com.example.producehelper.util.FileUtils;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,6 +24,9 @@ import java.util.Map;
 @Configuration
 public class DynamicDataSourceConfig
 {
+    @Value("${file.dataSourceFile}")
+    private String dataSourceFile;
+
     private static final String SQL_CONN_TEMPLATE = "jdbc:mysql://{0}/local_station?useUnicode=true&characterEncoding=UTF-8";
 
     @Bean(name = "master")
@@ -62,9 +66,9 @@ public class DynamicDataSourceConfig
      * @return
      * @throws Exception
      */
-    private static Map<Object, Object> readStationDataSourceFromExcel() throws Exception
+    private Map<Object, Object> readStationDataSourceFromExcel() throws Exception
     {
-        ClassPathResource classPathResource = new ClassPathResource("config/上线站点信息.xlsx");
+        ClassPathResource classPathResource = new ClassPathResource(dataSourceFile);
 
         List<StationDataSource> stationDataSourceList = FileUtils.readFromExcel(classPathResource.getFile(), StationDataSource.class);
 
@@ -77,7 +81,7 @@ public class DynamicDataSourceConfig
             dataSource.setPassword(stationDataSource.getDataBasePass());
             dataSource.setInitialSize(1);
             dataSource.setMaxActive(2);
-            dataSource.setMaxWait(120000);
+            dataSource.setMaxWait(60000);
             String urlConn = MessageFormat.format(SQL_CONN_TEMPLATE, stationDataSource.getStationIp());
             dataSource.setUrl(urlConn);
             dataSourceMap.put(stationDataSource.getStationId(), dataSource);

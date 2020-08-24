@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.*;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -25,6 +26,9 @@ public class ExecuteSQLServiceImpl implements IExecuteSQLService
     @Value("${file.sqlLogFile}")
     private String sqlLogFile;
 
+    @Value("${file.dataSourceFile}")
+    private String dataSourceFile;
+
     @Autowired
     private DynamicDataSource dynamicDataSource;
 
@@ -35,7 +39,7 @@ public class ExecuteSQLServiceImpl implements IExecuteSQLService
         String allSelected = stationSelected.getSelected();
         if ("all".equals(allSelected))
         {
-            ClassPathResource classPathResource = new ClassPathResource("config/上线站点信息.xlsx");
+            ClassPathResource classPathResource = new ClassPathResource(dataSourceFile);
             List<StationDataSource> stationDataSourceList = FileUtils.readFromExcel(classPathResource.getFile(), StationDataSource.class);
             stationIds = new LinkedHashSet<>(0);
             for (StationDataSource stationDataSource : stationDataSourceList)
@@ -58,7 +62,7 @@ public class ExecuteSQLServiceImpl implements IExecuteSQLService
 
         executeSqlOnStation(stationIds, sqlFilePath);
 
-        return "SUCCESS";
+        return "FINISH";
     }
 
     private void executeSqlOnStation(Collection<String> stationIds, String sqlFilePath) throws IOException, SQLException
@@ -67,25 +71,47 @@ public class ExecuteSQLServiceImpl implements IExecuteSQLService
 
         String logRootPath = new File("logs").getCanonicalPath();
         File logFile = new File(logRootPath, sqlLogFile);
-        PrintWriter writer = new PrintWriter(new FileWriter(logFile));
+        PrintWriter writer = new PrintWriter(new FileWriter(logFile), true);
 
         for (String stationId : stationIds)
         {
             DynamicDataSource.setDataSourceKey(stationId);
             //获取数据库链接
-            ScriptRunner runner = new ScriptRunner(dynamicDataSource.getConnection());
-            runner.setStopOnError(true);
-            runner.setLogWriter(writer);
-            runner.setErrorLogWriter(writer);
-            writer.println("-----------------" + stationId + "执行开始-----------------");
-            writer.flush();
-            runner.runScript(new InputStreamReader(sqlResource.getInputStream(), "UTF-8"));
-            //释放链接，不释放会导致数据库链接一直被占用，后续的请求无法获取
-            runner.closeConnection();
-            writer.println("-----------------" + stationId + "执行完成-----------------");
-            writer.println();
-            writer.println();
-            writer.flush();
+            Connection connection = null;
+            ScriptRunner runner = null;
+            try
+            {
+                connection = dynamicDataSource.getConnection();
+                runner = new ScriptRunner(connection);
+                connection.setAutoCommit(false);
+                runner.setStopOnError(true);
+                runner.setLogWriter(writer);
+                runner.setErrorLogWriter(writer);
+                writer.println("-----------------" + stationId + "执行开始-----------------");
+                runner.runScript(new InputStreamReader(sqlResource.getInputStream(), "UTF-8"));
+
+                writer.println("-----------------" + stationId + "执行完成-----------------");
+                writer.println();
+                writer.println();
+            }
+            catch (Exception e)
+            {
+                writer.println("-----------------" + stationId + "执行失败-----------------");
+                writer.println();
+                writer.println();
+                if (connection != null)
+                {
+                    connection.rollback();
+                }
+            }
+            finally
+            {
+                //释放链接，不释放会导致数据库链接一直被占用，后续的请求无法获取
+                if (runner != null)
+                {
+                    runner.closeConnection();
+                }
+            }
         }
         DynamicDataSource.setDataSourceKey(Constants.DEVELOP_STATION_ID);
         writer.close();
