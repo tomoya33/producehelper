@@ -4,9 +4,8 @@ import com.example.producehelper.dataSource.DynamicDataSource;
 import com.example.producehelper.model.StationDataSource;
 import com.example.producehelper.model.StationSelected;
 import com.example.producehelper.model.common.Constants;
-import com.example.producehelper.model.common.ExecuteResult;
+import com.example.producehelper.model.common.ExecuteRunSqlResult;
 import com.example.producehelper.service.inf.IExecuteSQLService;
-import com.example.producehelper.util.FileUtils;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,7 +18,6 @@ import java.io.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 @Transactional(rollbackFor = Exception.class)
@@ -76,7 +74,7 @@ public class ExecuteSQLServiceImpl implements IExecuteSQLService
 
         for (String stationId : stationIds)
         {
-            if (ExecuteResult.getExecuteResult(stationId) != null && ExecuteResult.getExecuteResult(stationId))
+            if (ExecuteRunSqlResult.getExecuteResult(stationId) != null && ExecuteRunSqlResult.getExecuteResult(stationId))
             {
                 writer.println("-----------------" + stationId + "之前已执行成功，不再重复执行-----------------");
                 writer.println();
@@ -101,7 +99,7 @@ public class ExecuteSQLServiceImpl implements IExecuteSQLService
                 writer.println("-----------------" + stationId + "执行完成-----------------");
                 writer.println();
                 writer.println();
-                ExecuteResult.setExecuteResult(stationId, true);
+                ExecuteRunSqlResult.setExecuteResult(stationId, true);
             }
             catch (Exception e)
             {
@@ -113,7 +111,7 @@ public class ExecuteSQLServiceImpl implements IExecuteSQLService
                 {
                     connection.rollback();
                 }
-                ExecuteResult.setExecuteResult(stationId, false);
+                ExecuteRunSqlResult.setExecuteResult(stationId, false);
             }
             finally
             {

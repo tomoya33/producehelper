@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ExecuteResult implements Serializable
+public class ExecuteRunSqlResult implements Serializable
 {
     private static final long serialVersionUID = -2227971786141855341L;
 
