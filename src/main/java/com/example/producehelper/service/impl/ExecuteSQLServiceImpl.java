@@ -4,10 +4,12 @@ import com.example.producehelper.dataSource.DynamicDataSource;
 import com.example.producehelper.model.StationDataSource;
 import com.example.producehelper.model.StationSelected;
 import com.example.producehelper.model.common.Constants;
+import com.example.producehelper.model.common.ExecuteResult;
 import com.example.producehelper.service.inf.IExecuteSQLService;
 import com.example.producehelper.util.FileUtils;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
@@ -26,11 +28,12 @@ public class ExecuteSQLServiceImpl implements IExecuteSQLService
     @Value("${file.sqlLogFile}")
     private String sqlLogFile;
 
-    @Value("${file.dataSourceFile}")
-    private String dataSourceFile;
-
     @Autowired
     private DynamicDataSource dynamicDataSource;
+
+    @Autowired
+    @Qualifier("stations")
+    private List<StationDataSource> stationDataSourceList;
 
     @Override
     public String runSql(StationSelected stationSelected) throws Exception
@@ -39,8 +42,6 @@ public class ExecuteSQLServiceImpl implements IExecuteSQLService
         String allSelected = stationSelected.getSelected();
         if ("all".equals(allSelected))
         {
-            ClassPathResource classPathResource = new ClassPathResource(dataSourceFile);
-            List<StationDataSource> stationDataSourceList = FileUtils.readFromExcel(classPathResource.getFile(), StationDataSource.class);
             stationIds = new LinkedHashSet<>(0);
             for (StationDataSource stationDataSource : stationDataSourceList)
             {
@@ -75,6 +76,13 @@ public class ExecuteSQLServiceImpl implements IExecuteSQLService
 
         for (String stationId : stationIds)
         {
+            if (ExecuteResult.getExecuteResult(stationId) != null && ExecuteResult.getExecuteResult(stationId))
+            {
+                writer.println("-----------------" + stationId + "之前已执行成功，不再重复执行-----------------");
+                writer.println();
+                writer.println();
+                continue;
+            }
             DynamicDataSource.setDataSourceKey(stationId);
             //获取数据库链接
             Connection connection = null;
@@ -93,9 +101,11 @@ public class ExecuteSQLServiceImpl implements IExecuteSQLService
                 writer.println("-----------------" + stationId + "执行完成-----------------");
                 writer.println();
                 writer.println();
+                ExecuteResult.setExecuteResult(stationId, true);
             }
             catch (Exception e)
             {
+                System.out.println("-----------------" + stationId + "执行失败-----------------");
                 writer.println("-----------------" + stationId + "执行失败-----------------");
                 writer.println();
                 writer.println();
@@ -103,6 +113,7 @@ public class ExecuteSQLServiceImpl implements IExecuteSQLService
                 {
                     connection.rollback();
                 }
+                ExecuteResult.setExecuteResult(stationId, false);
             }
             finally
             {

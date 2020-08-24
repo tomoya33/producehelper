@@ -17,6 +17,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +30,23 @@ public class DynamicDataSourceConfig
 
     private static final String SQL_CONN_TEMPLATE = "jdbc:mysql://{0}/local_station?useUnicode=true&characterEncoding=UTF-8";
 
+    @Bean("stations")
+    public List<StationDataSource> initStations()
+    {
+        ClassPathResource classPathResource = new ClassPathResource(dataSourceFile);
+        List<StationDataSource> stationDataSourceList = new ArrayList<>(0);
+        try
+        {
+            stationDataSourceList = FileUtils.readFromExcel(classPathResource.getFile(), StationDataSource.class);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return stationDataSourceList;
+    }
+
     @Bean(name = "master")
     @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource master()
@@ -39,12 +57,12 @@ public class DynamicDataSourceConfig
     //注入动态数据源
     @Bean(name = "dynamicDataSource")
     @Primary
-    public DynamicDataSource dynamicDataSource(@Qualifier("master") DataSource defaultDataSource)
+    public DynamicDataSource dynamicDataSource(@Qualifier("master") DataSource defaultDataSource, @Qualifier("stations") List<StationDataSource> stations)
     {
         Map<Object, Object> dataSources;
         try
         {
-            dataSources = readStationDataSourceFromExcel();
+            dataSources = readStationDataSourceFromExcel(stations);
         }
         catch (Exception e)
         {
@@ -66,14 +84,10 @@ public class DynamicDataSourceConfig
      * @return
      * @throws Exception
      */
-    private Map<Object, Object> readStationDataSourceFromExcel() throws Exception
+    private Map<Object, Object> readStationDataSourceFromExcel(List<StationDataSource> stations) throws Exception
     {
-        ClassPathResource classPathResource = new ClassPathResource(dataSourceFile);
-
-        List<StationDataSource> stationDataSourceList = FileUtils.readFromExcel(classPathResource.getFile(), StationDataSource.class);
-
-        Map<Object, Object> dataSourceMap = new HashMap<>(stationDataSourceList.size());
-        for (StationDataSource stationDataSource : stationDataSourceList)
+        Map<Object, Object> dataSourceMap = new HashMap<>(stations.size());
+        for (StationDataSource stationDataSource : stations)
         {
             DruidDataSource dataSource = new DruidDataSource();
             dataSource.setDriverClassName("com.mysql.jdbc.Driver");
