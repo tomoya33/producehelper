@@ -58,39 +58,10 @@ jasypt:
   encryptor:
     password: zhnyxs
 
-#令牌解密
-encrypt:
-  key-store:
-    location: classpath:/zj.keystore
-    secret: zhejiangkeystore
-    alias: zjkey
-    password: zhejiang
-
 logging:
   level:
     org.springframework.web: INFO
     com.xingyi.pos: INFO
-
-
-auth:
-  tokenValiditySeconds: 43200  #token存储到redis的过期时间
-  clientId: ZjWebApp  #客户端Id
-  clientSecret: ZjWebApp  #客户端密码
-  cookieDomain: 119.3.101.155  #
-  cookieMaxAge: -1  #浏览器关闭cookie无效
-  errorCount: 10   #密码错误的最大次数
-  expTime: 43200000L
-  signKey: "zj-project"
-
-
-aoplog:
-  enable: true
-  more: true
-
-
-#RSA加密配置
-myRSA:
-  pubKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm2JU6phYwXPDXRF6b6WFOjtgMt8ErdpGQjfxVOw5HcZ8NbqdLJxJybViegwMgl/yV8/p2soJC3oyGzrnOwLp4GJJDwpGFanytlca8g/atT5qbjgvbiKrjtN2nVQqxQSOsrOBk5lKtjrcQvkzeEaqYB85vU88azAzdrDuCt+euNs9RFLzd4jk75Q2ZquMM+vcuTk54VXo+lLtY3wAszRD3CjjP7OyfxPNQCaCaKDMu+8uwzTBJpgj5qXRpNHA06uM7uqWknFBnnDgmHp7xet+IOKdAmcmjF8FQvg9pebeABIKMq2UwOvSmEHMVIYMWlndN/bcFxhuVqANPno1t/8dlQIDAQAB
 
 file:
   sqlLogFile: runSql.log
