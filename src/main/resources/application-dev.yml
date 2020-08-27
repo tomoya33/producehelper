@@ -17,7 +17,7 @@ spring:
   redis:
     database: 0
     host: 127.0.0.1
-    port: 6379
+    port: 6378
     #password: ENC(+yGpfuuKZ1uMmkwnU/Pho8TDZJL3OdjA)
     timeout: 1000ms
     jedis:
