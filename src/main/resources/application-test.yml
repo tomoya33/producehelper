@@ -64,5 +64,5 @@ logging:
     com.xingyi.pos: INFO
 
 file:
-  sqlLogFile: runSql.log
-  dataSourceFile: config/上线站点信息.xlsx
+  sqlLogFile: test.log
+  dataSourceFile: config/测试站点信息.xlsx

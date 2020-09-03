@@ -1,5 +1,7 @@
 package com.example.producehelper.util;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -29,5 +31,31 @@ public class DateUtils
         c.add(Calendar.MILLISECOND, millisecond);//加减毫秒数
 
         return c.getTime();
+    }
+
+    public static String parseDateToStr(Date time, String timeFromat)
+    {
+        DateFormat dateFormat=new SimpleDateFormat(timeFromat);
+        return dateFormat.format(time);
+    }
+
+    public static Date parseStrToDate(String time, String timeFromat)
+    {
+        if (time == null || time.equals(""))
+        {
+            return null;
+        }
+
+        Date date=null;
+        try
+        {
+            DateFormat dateFormat=new SimpleDateFormat(timeFromat);
+            date=dateFormat.parse(time);
+        }
+        catch(Exception e)
+        {
+
+        }
+        return date;
     }
 }

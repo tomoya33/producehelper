@@ -38,4 +38,23 @@ public class ExecuteSQLController
             return "FAIL";
         }
     }
+
+    /**
+     * 在指定站点上执行init.sql里的内容
+     * @param stationSelected
+     * @return
+     */
+    @PostMapping("/init")
+    public String init(@RequestBody StationSelected stationSelected)
+    {
+        try
+        {
+            return executeSQLService.init(stationSelected);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return "FAIL";
+        }
+    }
 }

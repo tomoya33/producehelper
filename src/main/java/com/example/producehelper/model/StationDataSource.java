@@ -28,4 +28,7 @@ public class StationDataSource implements Serializable
     @Excel(name = "工控机密码")
     private String sshPass;
 
+    @Excel(name = "子公司编号")
+    private String subUnitCode;
+
 }

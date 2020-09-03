@@ -17,10 +17,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Configuration
 public class DynamicDataSourceConfig
@@ -31,7 +28,7 @@ public class DynamicDataSourceConfig
     private static final String SQL_CONN_TEMPLATE = "jdbc:mysql://{0}/local_station?useUnicode=true&characterEncoding=UTF-8";
 
     @Bean("stations")
-    public List<StationDataSource> initStations()
+    public Set<StationDataSource> initStations()
     {
         ClassPathResource classPathResource = new ClassPathResource(dataSourceFile);
         List<StationDataSource> stationDataSourceList = new ArrayList<>(0);
@@ -43,8 +40,9 @@ public class DynamicDataSourceConfig
         {
             e.printStackTrace();
         }
+        Set<StationDataSource> stationDataSourceSet = new LinkedHashSet<>(stationDataSourceList);
 
-        return stationDataSourceList;
+        return stationDataSourceSet;
     }
 
     @Bean(name = "master")
@@ -57,12 +55,12 @@ public class DynamicDataSourceConfig
     //注入动态数据源
     @Bean(name = "dynamicDataSource")
     @Primary
-    public DynamicDataSource dynamicDataSource(@Qualifier("master") DataSource defaultDataSource, @Qualifier("stations") List<StationDataSource> stations)
+    public DynamicDataSource dynamicDataSource(@Qualifier("master") DataSource defaultDataSource, @Qualifier("stations") Set<StationDataSource> stations)
     {
         Map<Object, Object> dataSources;
         try
         {
-            dataSources = readStationDataSourceFromExcel(stations);
+            dataSources = generateDataSources(stations);
         }
         catch (Exception e)
         {
@@ -84,7 +82,7 @@ public class DynamicDataSourceConfig
      * @return
      * @throws Exception
      */
-    private Map<Object, Object> readStationDataSourceFromExcel(List<StationDataSource> stations) throws Exception
+    private Map<Object, Object> generateDataSources(Collection<StationDataSource> stations) throws Exception
     {
         Map<Object, Object> dataSourceMap = new HashMap<>(stations.size());
         for (StationDataSource stationDataSource : stations)

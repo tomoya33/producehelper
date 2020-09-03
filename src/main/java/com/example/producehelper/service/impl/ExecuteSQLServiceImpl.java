@@ -31,10 +31,45 @@ public class ExecuteSQLServiceImpl implements IExecuteSQLService
 
     @Autowired
     @Qualifier("stations")
-    private List<StationDataSource> stationDataSourceList;
+    private Set<StationDataSource> stationDataSourceList;
 
     @Override
     public String runSql(StationSelected stationSelected) throws Exception
+    {
+        Set<String> stationIds = getStations(stationSelected);
+
+        if (stationIds == null || stationIds.isEmpty())
+        {
+            System.out.println("所选站点为空");
+            return "所选站点为空";
+        }
+
+        String sqlFilePath = "sql/run.sql";
+
+        executeSqlOnStation(stationIds, sqlFilePath);
+
+        return "FINISH";
+    }
+
+    @Override
+    public String init(StationSelected stationSelected) throws Exception
+    {
+        Set<String> stationIds = getStations(stationSelected);
+
+        if (stationIds == null || stationIds.isEmpty())
+        {
+            System.out.println("所选站点为空");
+            return "所选站点为空";
+        }
+
+        String sqlFilePath = "sql/init.sql";
+
+        executeSqlOnStation(stationIds, sqlFilePath);
+
+        return "FINISH";
+    }
+
+    private Set<String> getStations(StationSelected stationSelected)
     {
         Set<String> stationIds;
         String allSelected = stationSelected.getSelected();
@@ -50,18 +85,7 @@ public class ExecuteSQLServiceImpl implements IExecuteSQLService
         {
             stationIds = new LinkedHashSet<>(stationSelected.getStations());
         }
-
-        if (stationIds == null || stationIds.isEmpty())
-        {
-            System.out.println("所选站点为空");
-            return "所选站点为空";
-        }
-
-        String sqlFilePath = "sql/run.sql";
-
-        executeSqlOnStation(stationIds, sqlFilePath);
-
-        return "FINISH";
+        return stationIds;
     }
 
     private void executeSqlOnStation(Collection<String> stationIds, String sqlFilePath) throws IOException, SQLException
