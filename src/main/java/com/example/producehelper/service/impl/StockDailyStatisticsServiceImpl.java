@@ -17,7 +17,6 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service
-@Transactional(rollbackFor = Exception.class)
 public class StockDailyStatisticsServiceImpl implements IStockDailyStatisticsService
 {
     @Value("${file.sqlLogFile}")
@@ -95,6 +94,7 @@ public class StockDailyStatisticsServiceImpl implements IStockDailyStatisticsSer
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public String updateStockDailyStatistics(StationDataSource station)
     {
         String stationName = sConfigMapper.findDefValueByName("station_name");

@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface SConfigMapper
 {
     String findDefValueByName(@Param("varName") String varName);
+
+    void updateValByName(@Param("varName") String varName, @Param("defValue") String defValue);
 }

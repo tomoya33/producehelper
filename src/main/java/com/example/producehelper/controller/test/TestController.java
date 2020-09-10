@@ -2,13 +2,11 @@ package com.example.producehelper.controller.test;
 
 import com.example.producehelper.dataSource.DynamicDataSource;
 import com.example.producehelper.mapper.SConfigMapper;
+import com.example.producehelper.service.inf.ITestService;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -23,6 +21,9 @@ public class TestController
 
     @Autowired
     DynamicDataSource dynamicDataSource;
+
+    @Autowired
+    ITestService testService;
 
     @GetMapping("/multiStation")
     public String testMultiStation(@RequestParam("stationId") List<String> stations)
@@ -59,5 +60,23 @@ public class TestController
         }
 
         return "SUCCESS";
+    }
+
+    @PostMapping("/transactionTest1")
+    public String transactionTest1()
+    {
+        return testService.transactionTest1();
+    }
+
+    @PostMapping("/transactionTest2")
+    public String transactionTest2()
+    {
+        return testService.transactionTest2();
+    }
+
+    @PostMapping("/transactionTest3")
+    public String transactionTest3()
+    {
+        return testService.transactionTest3();
     }
 }
