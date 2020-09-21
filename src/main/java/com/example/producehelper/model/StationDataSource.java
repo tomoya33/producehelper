@@ -31,4 +31,7 @@ public class StationDataSource implements Serializable
     @Excel(name = "子公司编号")
     private String subUnitCode;
 
+    @Excel(name = "能否正常连接")
+    private String isActive;
+
 }

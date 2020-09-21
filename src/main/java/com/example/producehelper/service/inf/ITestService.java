@@ -7,4 +7,6 @@ public interface ITestService
     String transactionTest2();
 
     String transactionTest3();
+
+    String transactionTest4();
 }

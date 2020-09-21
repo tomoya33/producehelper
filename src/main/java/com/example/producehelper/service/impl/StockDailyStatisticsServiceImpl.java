@@ -110,6 +110,7 @@ public class StockDailyStatisticsServiceImpl implements IStockDailyStatisticsSer
             return "SKIP";
         }
         Map<String, Integer> goodsId2StockMap = goodsStocksList.stream().collect(Collectors.toMap(GoodsStock::getGoodsId, GoodsStock::getGoodsCount));
+        Map<String, String> goodsId2TypeMap = goodsStocksList.stream().collect(Collectors.toMap(GoodsStock::getGoodsId, GoodsStock::getFirstCategoryId));
 
         //获取最近日结日
         Map<String, Object> lastDailyShift = stockDailyStatisticsMapper.getLastCloseTime();
@@ -167,7 +168,11 @@ public class StockDailyStatisticsServiceImpl implements IStockDailyStatisticsSer
         {
             String goodsId = entry.getKey();
             Integer endStock = entry.getValue();
-            BigDecimal orderPrice = goodsId2OrderPrice.get(goodsId) == null ? new BigDecimal("0.0000") : goodsId2OrderPrice.get(goodsId).getGoodsOrderPrice().multiply(new BigDecimal("1.05"));
+            BigDecimal orderPrice = goodsId2OrderPrice.get(goodsId) == null ? new BigDecimal("0.0000") : goodsId2OrderPrice.get(goodsId).getGoodsOrderPrice();
+            if (!"01".equals(goodsId2TypeMap.get(goodsId)))
+            {
+                orderPrice = orderPrice.multiply(new BigDecimal("1.05"));
+            }
 
             GoodsStockDailyStatistics dailyStockStatistics = goodsId2DailyStock.get(goodsId);
             if (dailyStockStatistics == null)
@@ -194,7 +199,7 @@ public class StockDailyStatisticsServiceImpl implements IStockDailyStatisticsSer
             {
                 dailyStockStatistics.setCtime(lastCloseTime);
                 dailyStockStatistics.setMtime(lastCloseTime);
-                Long adjustCount = endStock-dailyStockStatistics.getBeginStock()+dailyStockStatistics.getAdjustCount();
+                Long adjustCount = endStock-dailyStockStatistics.getBeginStock()-dailyStockStatistics.getAdjustCount()+dailyStockStatistics.getSaleCount();
                 dailyStockStatistics.setAdjustCount(adjustCount);
                 dailyStockStatistics.setEndStock(endStock.longValue());
                 dailyStockStatistics.setEndValue(orderPrice.multiply(new BigDecimal(endStock)));

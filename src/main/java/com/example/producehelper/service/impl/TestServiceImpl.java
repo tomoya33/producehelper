@@ -25,15 +25,15 @@ public class TestServiceImpl implements ITestService
     {
         String value = configMapper.findDefValueByName("stock_statistics_date");
         System.out.println("test1:------" + value);
-        configMapper.updateValByName("stock_statistics_date", "21");
-//        try
-//        {
-//            TimeUnit.SECONDS.sleep(15);
-//        }
-//        catch (InterruptedException e)
-//        {
-//            e.printStackTrace();
-//        }
+        configMapper.updateValByName("stock_statistics_date", "16");
+        try
+        {
+            TimeUnit.SECONDS.sleep(15);
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
         value = configMapper.findDefValueByName("stock_statistics_date");
         System.out.println("test1:------" + value);
         return value;
@@ -80,6 +80,16 @@ public class TestServiceImpl implements ITestService
         value = configMapper.findDefValueByName("stock_statistics_date");
         System.out.println("test3:------" + value);
         return value;
+    }
+
+    @Override
+    @Transactional()
+    public String transactionTest4()
+    {
+        String value = configMapper.findDefValueByName("stock_statistics_date");
+        System.out.println("test1:------" + value);
+        configMapper.updateValByName("stock_statistics_date", "17");
+        return "SUCCESS";
     }
 
     private void testPrivate()

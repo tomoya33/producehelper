@@ -79,4 +79,10 @@ public class TestController
     {
         return testService.transactionTest3();
     }
+
+    @PostMapping("/transactionTest4")
+    public String transactionTest4()
+    {
+        return testService.transactionTest4();
+    }
 }

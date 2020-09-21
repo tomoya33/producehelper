@@ -23,4 +23,6 @@ public class GoodsStock implements Serializable
     private String goodsId;
 
     private Integer goodsCount;
+
+    private String firstCategoryId;
 }

@@ -6,10 +6,10 @@ spring:
 #    url: jdbc:mysql://192.168.0.238:3306/local_station?useUnicode=true&characterEncoding=UTF-8
 #    url: jdbc:mysql://192.168.0.11:3306/testSpringboot?useUnicode=true&characterEncoding=UTF-8
 #    url: jdbc:mysql://127.0.0.1:3335/local_station?useUnicode=true&characterEncoding=UTF-8
-    url: jdbc:mysql://192.168.0.11:3306/local_station?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/local_station?useUnicode=true&characterEncoding=UTF-8
 #    url: jdbc:mysql://119.3.42.30:53306/local_station?useUnicode=true&characterEncoding=UTF-8
     username: root
-    password: ENC(c/Y2PZMYWlFjx7IbNCt8rhsuwLYVWhMI)
+    password: root
     driver-class-name: com.mysql.jdbc.Driver
     platform: mysql
     type: com.alibaba.druid.pool.DruidDataSource

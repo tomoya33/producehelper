@@ -37,4 +37,6 @@ public interface StockDailyStatisticsMapper
     Long getStockDailyStatisticsAfter(@Param("statisticsDate") Date lastDailyDate);
 
     void deleteStockDailyStatisticsAfter(@Param("statisticsDate") Date lastDailyDate);
+
+
 }
