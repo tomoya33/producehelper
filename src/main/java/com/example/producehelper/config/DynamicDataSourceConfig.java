@@ -102,7 +102,7 @@ public class DynamicDataSourceConfig
             dataSource.setPassword(stationDataSource.getDataBasePass());
             dataSource.setInitialSize(1);
             dataSource.setMaxActive(2);
-            dataSource.setMaxWait(60000);
+            dataSource.setMaxWait(120000);
             dataSource.setConnectionErrorRetryAttempts(5);
             String urlConn = MessageFormat.format(SQL_CONN_TEMPLATE, stationDataSource.getStationIp());
             dataSource.setUrl(urlConn);

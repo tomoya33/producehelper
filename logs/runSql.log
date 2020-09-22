@@ -1,299 +1,393 @@
+-----------------AJE001执行开始-----------------
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
+
+-----------------AJE001执行完成-----------------
+
+
 -----------------AEE001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AEE001执行完成-----------------
 
 
 -----------------AE2001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AE2001执行完成-----------------
 
 
 -----------------AH3001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AH3001执行完成-----------------
 
 
 -----------------AJK001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AJK001执行完成-----------------
 
 
 -----------------AJK002执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AJK002执行完成-----------------
 
 
 -----------------AF1001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AF1001执行完成-----------------
 
 
 -----------------AE5001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AE5001执行完成-----------------
 
 
 -----------------AE5002执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AE5002执行完成-----------------
 
 
 -----------------AF7001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AF7001执行完成-----------------
 
 
 -----------------AF7002执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AF7002执行完成-----------------
 
 
 -----------------AK1002执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AK1002执行完成-----------------
 
 
 -----------------AK1001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AK1001执行完成-----------------
 
 
 -----------------AE5003执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AE5003执行完成-----------------
 
 
 -----------------AJ7001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AJ7001执行完成-----------------
 
 
 -----------------AK5003执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AK5003执行完成-----------------
 
 
 -----------------AK5001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AK5001执行完成-----------------
 
 
------------------AF1002执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
-
------------------AF1002执行完成-----------------
-
-
 -----------------AF1003执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AF1003执行完成-----------------
 
 
 -----------------AK6002执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AK6002执行完成-----------------
 
 
 -----------------AK6001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AK6001执行完成-----------------
 
 
 -----------------AH3002执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AH3002执行完成-----------------
 
 
 -----------------AF7003执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AF7003执行完成-----------------
 
 
 -----------------AF6001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AF6001执行完成-----------------
 
 
 -----------------AF4001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AF4001执行完成-----------------
 
 
------------------AC1001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
-
------------------AC1001执行完成-----------------
+-----------------AC1001执行失败-----------------
 
 
 -----------------AF2002执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AF2002执行完成-----------------
 
 
 -----------------AF2001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AF2001执行完成-----------------
 
 
 -----------------AH3004执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AH3004执行完成-----------------
 
 
 -----------------AK5002执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AK5002执行完成-----------------
 
 
 -----------------AF3001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AF3001执行完成-----------------
 
 
 -----------------AK2002执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AK2002执行完成-----------------
 
 
 -----------------AK2003执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AK2003执行完成-----------------
 
 
 -----------------AK2001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AK2001执行完成-----------------
 
 
 -----------------AK4003执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AK4003执行完成-----------------
 
 
 -----------------AK4001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AK4001执行完成-----------------
 
 
 -----------------AK3001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AK3001执行完成-----------------
 
 
 -----------------AK4002执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AK4002执行完成-----------------
 
 
+-----------------AH3003执行开始-----------------
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
+
+-----------------AH3003执行完成-----------------
+
+
 -----------------AF3002执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AF3002执行完成-----------------
 
 
 -----------------AD4003执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AD4003执行完成-----------------
 
 
 -----------------AD4001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AD4001执行完成-----------------
 
 
 -----------------AHF001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AHF001执行完成-----------------
 
 
 -----------------ABG001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------ABG001执行完成-----------------
 
 
 -----------------AD4002执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AD4002执行完成-----------------
 
 
 -----------------AK3002执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AK3002执行完成-----------------
 
 
 -----------------AG5001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AG5001执行完成-----------------
 
 
 -----------------AKE001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AKE001执行完成-----------------
 
 
 -----------------AK8002执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AK8002执行完成-----------------
 
 
 -----------------AH1002执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AH1002执行完成-----------------
 
 
 -----------------AE4001执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
 -----------------AE4001执行完成-----------------
 
 
------------------AH4002执行开始-----------------
-ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
+-----------------AK9001执行开始-----------------
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
 
-Error executing: ALTER TABLE b_goods_dismantle ADD dismantle_type char(1) NULL DEFAULT '0' COMMENT '拆零类型  0-全部|1-扫整扣零|2-扫零拆整|3-冻结'
-.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Duplicate column name 'dismantle_type'
+-----------------AK9001执行完成-----------------
+
+
+-----------------AK9002执行开始-----------------
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
+
+-----------------AK9002执行完成-----------------
+
+
+-----------------AJ6001执行开始-----------------
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
+
+-----------------AJ6001执行完成-----------------
+
+
+-----------------AH4002执行开始-----------------
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
+
+-----------------AH4002执行完成-----------------
+
+
+-----------------AF4002执行开始-----------------
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
+
+-----------------AF4002执行完成-----------------
+
+
+-----------------AEE002执行开始-----------------
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
+
+-----------------AEE002执行完成-----------------
+
+
+-----------------AH4001执行开始-----------------
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
+
+-----------------AH4001执行完成-----------------
+
+
+-----------------AK1003执行开始-----------------
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
+
+-----------------AK1003执行完成-----------------
+
+
+-----------------AEE003执行开始-----------------
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
+
+-----------------AEE003执行完成-----------------
+
+
+-----------------AH5001执行开始-----------------
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
+
+-----------------AH5001执行完成-----------------
+
+
+-----------------AH5002执行开始-----------------
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
+
+-----------------AH5002执行完成-----------------
+
+
+-----------------AC4001执行开始-----------------
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
+
+-----------------AC4001执行完成-----------------
+
+
+-----------------AK8001执行开始-----------------
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
+
+-----------------AK8001执行完成-----------------
+
+
+-----------------AH1001执行开始-----------------
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
+
+-----------------AH1001执行完成-----------------
+
+
+-----------------AH5005执行开始-----------------
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
+
+-----------------AH5005执行完成-----------------
+
+
+-----------------AK6003执行开始-----------------
+UPDATE b_goods SET supplier_id='2000025438', supplier_name='杭州驰臻实业有限公司' WHERE goods_id in ('6952813400017')
+
+-----------------AK6003执行完成-----------------
+
+

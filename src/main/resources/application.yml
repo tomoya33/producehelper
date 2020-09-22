@@ -1,5 +1,4 @@
 spring:
   profiles:
-#    active:  "prod"
-#    active:  "dev"
-    active:  "test"
+    active:  "dev"
+#    active:  "test"
